@@ -1,0 +1,42 @@
+{
+  "name": "auburnite/feag",
+  "description": "Feature flag component of Auburnite",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jordan Wamser",
+      "email": "jwamser@redpandacoding.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.2",
+    "auburnite/contracts": "~0.1.0",
+    "auburnite/exceptions": "~0.1.0",
+    "psr/simple-cache": "^3.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^11.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Auburnite\\Component\\Feag\\": ""
+    },
+    "classmap": [],
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Auburnite\\Component\\Feag\\Test\\": "Tests/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "branch-alias": {
+      "dev-main": "0.1-dev"
+    }
+  }
+}
