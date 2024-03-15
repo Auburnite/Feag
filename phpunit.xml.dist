@@ -10,9 +10,13 @@
          beStrictAboutOutputDuringTests="true"
          failOnRisky="true"
          failOnWarning="true">
+    <php>
+        <ini name="error_reporting" value="-1" />
+    </php>
+
     <testsuites>
         <testsuite name="Unit">
-            <directory>Tests/Unit</directory>
+            <directory>./Tests/Unit</directory>
         </testsuite>
     </testsuites>
 

@@ -1,12 +1,14 @@
 <?php
 
-/*******************************************************************************
- * Auburnite
+/*
+ * This file is part of the Auburnite package.
  *
- * @link                https://github.com/Auburnite/Auburnite
- * @copywrite           Copywrite (c) 2023-present | Jordan Wamser - RedPanda Coding
- * @license             https://github.com/Auburnite/Auburnite/blob/main/LICENSE
- ******************************************************************************/
+ * (c) Jordan Wamser <jwamser@redpandacoding.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Auburnite\Component\Feag;
 
 use Auburnite\Component\Feag\Feature\Flag\FlagInterface;
@@ -14,6 +16,6 @@ use Auburnite\Component\Feag\Feature\Flag\FlagInterface;
 interface FeatureFlagManagerInterface
 {
     public function isFlagActive(string $flagName): bool;
-    public function get(string $flagName): FlagInterface;
 
+    public function get(string $flagName): FlagInterface;
 }

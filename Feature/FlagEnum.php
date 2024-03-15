@@ -1,20 +1,22 @@
 <?php
 
-/*******************************************************************************
- * Auburnite
+/*
+ * This file is part of the Auburnite package.
  *
- * @link                https://github.com/Auburnite/Auburnite
- * @copywrite           Copywrite (c) 2023-present | Jordan Wamser - RedPanda Coding
- * @license             https://github.com/Auburnite/Auburnite/blob/main/LICENSE
- ******************************************************************************/
+ * (c) Jordan Wamser <jwamser@redpandacoding.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Auburnite\Component\Feag\Feature;
 
 enum FlagEnum: string
 {
     /**
-     * Default value for Flag that doesn't match a lookup
+     * Default value for Flag that doesn't match a lookup.
      */
-    case CONTROL    = 'control';
-    case ON         = 'on';
-    case OFF        = 'off';
+    case CONTROL = 'control';
+    case ON = 'on';
+    case OFF = 'off';
 }

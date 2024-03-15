@@ -1,12 +1,14 @@
 <?php
 
-/*******************************************************************************
- * Auburnite
+/*
+ * This file is part of the Auburnite package.
  *
- * @link                https://github.com/Auburnite/Auburnite
- * @copywrite           Copywrite (c) 2023-present | Jordan Wamser - RedPanda Coding
- * @license             https://github.com/Auburnite/Auburnite/blob/main/LICENSE
- ******************************************************************************/
+ * (c) Jordan Wamser <jwamser@redpandacoding.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Auburnite\Component\Feag\Storage;
 
 use Auburnite\Component\Feag\Exception\ConfigurationException;
@@ -17,7 +19,7 @@ use Auburnite\Component\Feag\Feature\FlagEnum;
 final class ArrayStorage implements StorageInterface
 {
     /**
-     * @var array<FlagInterface> $storage
+     * @var array<FlagInterface>
      */
     private array $storage = [];
 
@@ -32,11 +34,8 @@ final class ArrayStorage implements StorageInterface
     public function set(FlagInterface $value, ?string $key = null): ArrayStorage
     {
         $index = $key ?? $value->getName();
-        if (array_key_exists($index,$this->storage)) {
-            throw new ConfigurationException(sprintf(
-                'Flag %s, has already been used. You cannot have duplicated Flags.',
-                $index
-            ));
+        if (array_key_exists($index, $this->storage)) {
+            throw new ConfigurationException(sprintf('Flag %s, has already been used. You cannot have duplicated Flags.', $index));
         }
 
         $this->storage[$index] = $value;
@@ -57,15 +56,12 @@ final class ArrayStorage implements StorageInterface
 
         foreach ($flags as $key => $flag) {
             if (!is_string($flag)) {
-                throw new ConfigurationException(sprintf(
-                    'the yaml flag file is not setup correctly',
-                ));
+                throw new ConfigurationException(sprintf('the yaml flag file is not setup correctly'));
             }
 
-            $container->set(new BasicFlag($key,FlagEnum::tryFrom($flag) ?? FlagEnum::CONTROL));
+            $container->set(new BasicFlag($key, FlagEnum::tryFrom($flag) ?? FlagEnum::CONTROL));
         }
 
         return $container;
     }
-
 }

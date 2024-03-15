@@ -1,12 +1,14 @@
 <?php
 
-/*******************************************************************************
- * Auburnite
+/*
+ * This file is part of the Auburnite package.
  *
- * @link                https://github.com/Auburnite/Auburnite
- * @copywrite           Copywrite (c) 2023-present | Jordan Wamser - RedPanda Coding
- * @license             https://github.com/Auburnite/Auburnite/blob/main/LICENSE
- ******************************************************************************/
+ * (c) Jordan Wamser <jwamser@redpandacoding.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Auburnite\Component\Feag\Tests\Unit\Storage;
 
 use Auburnite\Component\Feag\Feature\Flag\BasicFlag;
@@ -24,12 +26,11 @@ class ArrayStorageTest extends TestCase
     protected function setUp(): void
     {
         $this->storage = new ArrayStorage();
-
     }
 
     public function testFlagNotInStorageReturnsControlValue(): void
     {
-        self::assertEquals(BasicFlag::control('feature:test'),$this->storage->get('feature:test'));
+        self::assertEquals(BasicFlag::control('feature:test'), $this->storage->get('feature:test'));
     }
 
     public function testFlagCanBeSetInStorage(): void
@@ -37,10 +38,10 @@ class ArrayStorageTest extends TestCase
         $flag = new BasicFlag('feature:set-me-flag');
         $key = 'feature:set-me-string';
         $this->storage->set($flag);
-        $this->storage->set($flag,$key);
+        $this->storage->set($flag, $key);
 
-        self::assertEquals($flag,$this->storage->get($flag));
-        self::assertEquals($flag,$this->storage->get($key));
+        self::assertEquals($flag, $this->storage->get($flag));
+        self::assertEquals($flag, $this->storage->get($key));
     }
 
     public function testFlagCanBeRemovedFromStorage(): void
@@ -48,11 +49,11 @@ class ArrayStorageTest extends TestCase
         $key = 'feature:remove-me-flag';
         $flag = new BasicFlag($key);
         $controlFlag = BasicFlag::control($key);
-        $this->storage->set($flag,$key);
+        $this->storage->set($flag, $key);
 
         $this->storage->remove($key);
 
-        //make sure it was removed
-        self::assertEquals(BasicFlag::control($key),$this->storage->get($key));
+        // make sure it was removed
+        self::assertEquals(BasicFlag::control($key), $this->storage->get($key));
     }
 }
