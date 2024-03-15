@@ -9,10 +9,13 @@
  ******************************************************************************/
 namespace Auburnite\Component\Feag\Storage;
 
-use Auburnite\Component\Feag\Feature\Flag\FlagInterface;
+use Auburnite\Component\Feag\Feature\Flag\BasicFlag;
+use Auburnite\Component\Feag\Feature\Flag\BooleanFlagInterface;
 
-interface StorageInterface
+class FlagCollection extends Storage
 {
-    public function get(string $key): FlagInterface;
-    public function set(FlagInterface $value, string $key): self;
+    public function getType(): string
+    {
+        return BasicFlag::class;
+    }
 }

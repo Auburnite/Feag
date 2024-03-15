@@ -9,8 +9,7 @@
  ******************************************************************************/
 namespace Auburnite\Component\Feag\Tests\Unit\Storage;
 
-use Auburnite\Component\Feag\Feature\BasicFlag;
-use Auburnite\Component\Feag\Feature\FlagEnum;
+use Auburnite\Component\Feag\Feature\Flag\BasicFlag;
 use Auburnite\Component\Feag\Storage\ArrayStorage;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\UsesClass;

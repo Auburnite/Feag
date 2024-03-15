@@ -10,7 +10,7 @@
 namespace Auburnite\Component\Feag;
 
 use Auburnite\Auburnite\Component\Exception\Exception;
-use Auburnite\Component\Feag\Feature\FlagInterface;
+use Auburnite\Component\Feag\Feature\Flag\FlagInterface;
 use Auburnite\Component\Feag\Storage\StorageInterface;
 
 class FeatureFlagManager implements FeatureFlagManagerInterface
@@ -30,7 +30,7 @@ class FeatureFlagManager implements FeatureFlagManagerInterface
      */
     public function isFlagActive(string $flagName): bool
     {
-        return $this->get($flagName)->isActive();
+        return $this->get($flagName)->isEnabled();
     }
 
     /**

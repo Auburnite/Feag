@@ -9,7 +9,7 @@
  ******************************************************************************/
 namespace Auburnite\Component\Feag\Tests\Unit\Feature;
 
-use Auburnite\Component\Feag\Feature\BasicFlag;
+use Auburnite\Component\Feag\Feature\Flag\BasicFlag;
 use Auburnite\Component\Feag\Feature\FlagEnum;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
@@ -21,7 +21,7 @@ class BasicFlagTest extends TestCase
     {
         $flag = new BasicFlag('test_flag',FlagEnum::ON);
 
-        self::assertTrue($flag->isActive(),'Flag is not active');
+        self::assertTrue($flag->isEnabled(),'Flag is not active');
     }
 
     public function testFlagName(): void

@@ -7,20 +7,22 @@
  * @copywrite           Copywrite (c) 2023-present | Jordan Wamser - RedPanda Coding
  * @license             https://github.com/Auburnite/Auburnite/blob/main/LICENSE
  ******************************************************************************/
-namespace Auburnite\Component\Feag\Feature;
+namespace Auburnite\Component\Feag\Feature\Flag;
 
-final class BasicFlag implements FlagInterface
+use Auburnite\Component\Feag\Feature\FlagEnum;
+
+final class BasicFlag implements BooleanFlagInterface
 {
     private string $name;
-    private FlagEnum $value;
+    private string $value;
 
     public function __construct(
-        string $name,
+        string   $name,
         FlagEnum $value = FlagEnum::CONTROL
     )
     {
         $this->name = $name;
-        $this->value = $value;
+        $this->value = $value->value;
     }
 
     public static function control(string $name): BasicFlag
@@ -33,10 +35,10 @@ final class BasicFlag implements FlagInterface
         return $this->name;
     }
 
-    public function isActive(): bool
+    public function isEnabled(): bool
     {
         return match ($this->value) {
-            FlagEnum::ON => true,
+            FlagEnum::ON->value => true,
             default => false,
         };
     }
@@ -44,5 +46,10 @@ final class BasicFlag implements FlagInterface
     public function __toString(): string
     {
         return $this->getName();
+    }
+
+    public function getValue(): string
+    {
+        return $this->value;
     }
 }

@@ -10,9 +10,9 @@
 namespace Auburnite\Component\Feag\Storage;
 
 use Auburnite\Component\Feag\Exception\ConfigurationException;
-use Auburnite\Component\Feag\Feature\BasicFlag;
+use Auburnite\Component\Feag\Feature\Flag\BasicFlag;
+use Auburnite\Component\Feag\Feature\Flag\FlagInterface;
 use Auburnite\Component\Feag\Feature\FlagEnum;
-use Auburnite\Component\Feag\Feature\FlagInterface;
 
 final class ArrayStorage implements StorageInterface
 {

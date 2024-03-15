@@ -9,7 +9,7 @@
  ******************************************************************************/
 namespace Auburnite\Component\Feag;
 
-use Auburnite\Component\Feag\Feature\FlagInterface;
+use Auburnite\Component\Feag\Feature\Flag\FlagInterface;
 
 interface FeatureFlagManagerInterface
 {
