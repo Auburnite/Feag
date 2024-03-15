@@ -25,6 +25,9 @@ class FeatureFlagManager implements FeatureFlagManagerInterface
         $this->flagContainer = $flagContainer;
     }
 
+    /**
+     * @throws Exception
+     */
     public function isFlagActive(string $flagName): bool
     {
         return $this->get($flagName)->isActive();
